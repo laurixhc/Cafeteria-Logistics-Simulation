@@ -73,7 +73,7 @@ rnormal_truncada = function(n, mu, sigma){
 }
 
 
-##############Creación de subrutinas##############
+##############Creating subroutines##############
 
 LlegadaMI = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSMI, Microondas,total_llegadas11){
   N11 = N11 + 1
@@ -87,8 +87,8 @@ LlegadaMI = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT,
     }
     
     DSMI = aux
-    posiciones=which(is.na(Microondas))
-    Microondas[posiciones[1]]=TM+DSMI
+    positions=which(is.na(Microondas))
+    Microondas[positions[1]]=TM+DSMI
     TSMI=min(Microondas,na.rm = TRUE)
   }
   
@@ -109,9 +109,9 @@ LlegadaMI = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT,
 LlegadaCA = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSME, TSBA, Camareros,total_llegadas12,total_llegadas13){
   
   u = runif(1)
-  pedido = 1*(u<=0.55) + 2*(u>0.55) #1 menú, 2 bocata
+  order = 1*(u<=0.55) + 2*(u>0.55) #1 menu, 2 sandwich
   
-  if (pedido ==1){
+  if (order ==1){
     N12 = N12 + 1
     total_llegadas12=total_llegadas12+1
     
@@ -125,14 +125,14 @@ LlegadaCA = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT,
     
   }
   
-  else if (pedido ==2){
+  else if (order ==2){
     N13 = N13 + 1
     total_llegadas13=total_llegadas13+1
     
     if(any(is.na(Camareros))){
       DSBA = rlog_normal(1,mubar,sigmabar)
-      posiciones=which(is.na(Camareros))
-      Camareros[posiciones[1]]=TM+DSBA
+      positions=which(is.na(Camareros))
+      Camareros[positions[1]]=TM+DSBA
       TSBA=min(Camareros,na.rm = TRUE)
     }
     
@@ -168,8 +168,8 @@ ServicioMI = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
     }
     
     DSMI = aux
-    posiciones=which(is.na(Microondas))
-    Microondas[posiciones[1]]=TM+DSMI
+    positions=which(is.na(Microondas))
+    Microondas[positions[1]]=TM+DSMI
   }
   
   TSMI=min(Microondas,na.rm = TRUE)
@@ -177,8 +177,8 @@ ServicioMI = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   
   if(any(is.na(Asientos))){
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -512,6 +512,7 @@ print("Número medio de personas en el comedor")
 SUMA2/TM
 
 TM
+
 
 
 
