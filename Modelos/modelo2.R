@@ -203,8 +203,8 @@ ServicioME = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   
   if(any(is.na(Asientos))){
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -229,8 +229,8 @@ ServicioBA = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   if (length(which(is.na(Camareros)))>=1 & N13 - length(which(!is.na(Camareros)))>0){
     
     DSBA = rlog_normal(1,mubar,sigmabar)
-    posiciones=which(is.na(Camareros))
-    Camareros[posiciones[1]]=TM+DSBA
+    positions=which(is.na(Camareros))
+    Camareros[positions[1]]=TM+DSBA
   }
   
   TSBA=min(Camareros,na.rm = TRUE)
@@ -238,8 +238,8 @@ ServicioBA = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   
   if(N2 >= 1 & any(is.na(Asientos))){
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -262,8 +262,8 @@ ServicioCO = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT
   if (length(which(is.na(Asientos)))>=1 & N2 - length(which(!is.na(Asientos)))>0){
     print(1)
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
   }
   TSCO=min(Asientos,na.rm = TRUE)
   
@@ -279,15 +279,15 @@ ServicioCO = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT
 
 
 
-##############NOTACIÓN##############
+##############NOTATION##############
 
-#           Etapas
+#           Stages
 #   1.
-#     1.1 Servicio microondas
-#     1.2 Servicio menú
-#     1.3 Servicio barra
+#     1.1 Microwave service
+#     1.2 Menu service
+#     1.3 Bar service
 
-#   2. Comedor
+#   2. Dining room
 
 #En este problema tendremos en cuenta el aforo de la cafeteria
 #Consideraremos: 1 microondas que no se estropea, 1 camarero y no tardamos 
@@ -340,23 +340,23 @@ ServicioCO = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT
 #total_servicio13 = número de personas que han sido atendidas en la barra
 #total_servicio2 = número de personas que se han sentado
 
-##############PARÁMETROS##############
-lambdamic = 2 #personas que llegan por minuto al microondas
-meanmic = 2 #media de tiempo que tarda el microondas
-sdmic = 0.5 #desviacion del tiempo del microondas
+##############PARAMETERS##############
+lambdamic = 2 #people who come to the microwave per minute
+meanmic = 2 #average time it takes to use the microwave
+sdmic = 0.5 #microwave time deviation
 
-lambdacaf = 3 #personas que llegan por minuto a la cafeteria
+lambdacaf = 3 #people arriving at the cafeteria per minute
 desv=1.5
 med=3
-sigmabar = sqrt( log(1+desv^2/med^2) )#valor sigma para la lognormal del servicio de la barra
-mubar = (log(med^2)-desv^2)/2 #valor media para la lognormal del servicio de la barra
+sigmabar = sqrt( log(1+desv^2/med^2) )#sigma value for the lognormal of the bar service
+mubar = (log(med^2)-desv^2)/2 #mean value for the lognormal of the bar service
 
 
 aforomax = 140
-mucomida = 40 #valor mu para la normal truncada del tiempo en comer
-sigmacomida = 10 #valor sigma para la normal truncada del tiempo en comer
+mucomida = 40 #mu value for the truncated normal eating time
+sigmacomida = 10 #sigma value for the truncated normal eating time
 
-##############INICIALIZACIÓN##############
+##############INICIALIZATION##############
 set.seed(1)
 N11 = 0
 N12 = 0
@@ -402,7 +402,7 @@ TSBA = Inf
 TSCO = Inf
 
 
-##############PROGRAMA PRINCIPAL##############
+##############MAIN PROGRAM##############
 while(TM<Tmax){
   TM = min(TLMI, TLCA, TSMI, TSME, TSBA, TSCO)
   Estado = 1*(TM == TLMI) + 2*(TM == TLCA) + 3*(TM == TSMI) + 4*(TM == TSME) + 5*(TM == TSBA) + 6*(TM == TSCO)
@@ -497,21 +497,22 @@ while(TM<Tmax){
     
   }
 }
-print("Número de personas en cola en la cafetería")
+print("Number of people in line at the cafeteria")
 N12+N13
-print("Número de personas en la cola de los microondas")
+print("Number of people in line at the microwave")
 N11
-print("Número medio de personas en cada servicio:")
-print("Número medio de personas en el microondas")
+print("Average number of people in each service:")
+print("Average number of people in the microwave")
 SUMA11/TM
-print("Número medio de personas en menú")
+print("Average number of people in menu")
 SUMA12/TM
-print("Número medio de personas en la barra")
+print("Average number of people in the bar")
 SUMA13/TM
-print("Número medio de personas en el comedor")
+print("Average number of people in the dining room")
 SUMA2/TM
 
 TM
+
 
 
 
