@@ -76,7 +76,7 @@ rnormal_truncada = function(n, mu, sigma){
 }
 
 
-##############Creacción de subrutinas##############
+##############Creating subroutines##############
 
 LlegadaMI = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSMI, Microondas, PMI, Asientos,total_llegadas11,total_llegadas2,f){
   N11 = N11 + 1
@@ -89,14 +89,14 @@ LlegadaMI = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT,
   if(N11 > PIMI & u<=0.2){
     N11 = N11 - 1
     f=f+1
-    print("Directo a comer")
+    print("Straight to eat")
     N2 = N2 + 1
     total_llegadas2 = total_llegadas2 + 1
     
     if(N2 >= 1 & any(is.na(Asientos))){
       DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-      posiciones=which(is.na(Asientos))
-      Asientos[posiciones[1]]=TM+DSCO
+      positions=which(is.na(Asientos))
+      Asientos[positions[1]]=TM+DSCO
       TSCO=min(Asientos,na.rm = TRUE)
     }
     SUMA11 = SUMA11 + N11*(TM - TANT)
@@ -109,8 +109,8 @@ LlegadaMI = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT,
         aux=rnormal(1,meanmic,sdmic)
       }
       DSMI = aux
-      posiciones=which(is.na(Microondas))
-      Microondas[posiciones[1]]=TM+DSMI
+      positions=which(is.na(Microondas))
+      Microondas[positions[1]]=TM+DSMI
       TSMI=min(Microondas,na.rm = TRUE)
     }
     SUMA11 = SUMA11 + (N11 - 1)*(TM - TANT)
@@ -162,8 +162,8 @@ LlegadaCA = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT,
     else{
       if(any(is.na(Camareros))){
         DSBA = rlog_normal(1,mubar,sigmabar)
-        posiciones=which(is.na(Camareros))
-        Camareros[posiciones[1]]=TM+DSBA
+        positions=which(is.na(Camareros))
+        Camareros[positions[1]]=TM+DSBA
         TSBA=min(Camareros,na.rm = TRUE)
       }
       SUMA13 = SUMA13 + (N13 - 1)*(TM-TANT)
@@ -194,8 +194,8 @@ ServicioMI = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
     }
     
     DSMI = aux
-    posiciones=which(is.na(Microondas))
-    Microondas[posiciones[1]]=TM+DSMI
+    positions=which(is.na(Microondas))
+    Microondas[positions[1]]=TM+DSMI
   }
   
   TSMI=min(Microondas,na.rm = TRUE)
@@ -203,8 +203,8 @@ ServicioMI = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   
   if(any(is.na(Asientos))){
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -229,8 +229,8 @@ ServicioME = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   
   if(any(is.na(Asientos))){
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -255,8 +255,8 @@ ServicioBA = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   if (length(which(is.na(Camareros)))>=1 & N13 - length(which(!is.na(Camareros)))>0){
     
     DSBA = rlog_normal(1,mubar,sigmabar)
-    posiciones=which(is.na(Camareros))
-    Camareros[posiciones[1]]=TM+DSBA
+    positions=which(is.na(Camareros))
+    Camareros[positions[1]]=TM+DSBA
   }
   
   TSBA=min(Camareros,na.rm = TRUE)
@@ -264,8 +264,8 @@ ServicioBA = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   
   if(N2 >= 1 & any(is.na(Asientos))){
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -288,8 +288,8 @@ ServicioCO = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT
   if (length(which(is.na(Asientos)))>=1 & N2 - length(which(!is.na(Asientos)))>0){
     print(1)
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
   }
   TSCO=min(Asientos,na.rm = TRUE)
   
@@ -305,7 +305,7 @@ ServicioCO = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT
 
 
 
-##############NOTACIÓN##############
+##############NOTATION##############
 
 #           Etapas
 #   1.
@@ -555,4 +555,5 @@ print("Número medio de personas en el comedor")
 SUMA2/TM
 
 TM
+
 
