@@ -327,47 +327,44 @@ ServicioCO = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT
 #TANT = previous moment
 #Tmax = maximum simulation time
 
-#DLMI = Distribución de tiempos de llegada al microondas
-#DLCA = Distribución de tiempos de llegada a la cafetería
+#DLMI = Distribution of arrival times at the microwave
+#DLCA = Distribution of arrival times at the cafeteria
 
-#DSMI = Distribución tiempos de servicio del microondas
-#DSME = Distribución tiempos de servicio del menú
-#DSBA = Distribución tiempos de servicio de la barra
-#DSCO = Distribución tiempos de servicio del comedor
+#DSMI = Distribution of microwave service times
+#DSME = Distribution of menu service times
+#DSBA = Distribution of bar service times
+#DSCO = Distribution of dining room service times
 
-#TLMI = Instante de la próxima llegada al microondas
-#TLCA = Instante de la próxima llegada a la cafetería
+#TLMI = Instant of the next arrival at the microwave
+#TLCA = Instant of the next arrival at the cafeteria
 
-#TSMI = Instante de la próxima finalización del servicio del microondas
-#TSME = Instante de la próxima finalización del servicio del menú
-#TSBA = Instante de la próxima finalización del servicio de la barra
-#TSCO = Instante de la próxima finalización del servicio del comedor
+#TSMI = Instant of the next microwave service completion
+#TSME = Instant of the next menu service completion
+#TSBA = Instant of the next bar service completion
+#TSCO = Instant of the next dining room service completion
 
-#Asientos = Vector de asientos que indica si está vacio el asiento y 
-#           si no el próximo fin de comida de ese asiento
-#Microondas= Vector que indica qué microondas están libres con NA u ocupados
-#            con el próximo fin de servicio
-#Camareros= Vector que indica qué camareros están libres con NA u ocupados con
-#           el próximo fin de servicio
+#Asientos = Seat vector indicating whether the seat is empty and, if not, the next meal end for that seat.
+#Microondas= Vector indicating which microwaves are free with NA or busy with the next end of service
+#Camareros= Vector indicating which waiters are free with NA or busy with the next end of service
 
-#SUMA11 = Contador suma acumulada etapa 1.1
-#SUMA12 = Contador suma acumulada etapa 1.2
-#SUMA13 = Contador suma acumulada etapa etapa 1.3
-#SUMA2 = Contador suma acumulada etapa etapa 2
+#SUMA11 = Counter cumulative sum stage 1.1
+#SUMA12 = Counter cumulative sum stage 1.2
+#SUMA13 = Counter cumulative sum stage 1.3
+#SUMA2 = CCounter cumulative sum stage 2
 
-#PIBARRA = Límite de personas impacientes en la cola de la barra
-#PIMI = Límite de personas impacientes en la cola de los microondas
+#PIBARRA = Limit the number of impatient people in the bar queue
+#PIMI = Limit the number of impatient people in the microwave queue
 
 
-#total_llegadas11 = número de personas que llegan a la etapa 1.1(microondas)
-#total_llegadas12 = número de personas que llegan a la etapa 1.2(menú)
-#total_llegadas13 = número de personas que llegan a la etapa 1.3(cafetería)
-#total_llegadas = número de personas que llegan a la etapa 2(comedor)
+#total_llegadas11 = number of people who reach the stage 1.1(microwave)
+#total_llegadas12 = number of people who reach the stage 1.2(menu)
+#total_llegadas13 = number of people who reach the stage 1.3(cafeteria)
+#total_llegadas = number of people who reach the stage 2(dining rrom)
 
-#total_servicio11 = número de personas que han sido atendidas en el mircoondas
-#total_servicio12 = número de personas que han sido atendidas en el menú
-#total_servicio13 = número de personas que han sido atendidas en la barra
-#total_servicio2 = número de personas que se han sentado
+#total_servicio11 = number of people who have been served at the microwave
+#total_servicio12 = number of people who have been served at the menu
+#total_servicio13 = number of people who have been served at the bar
+#total_servicio2 = number of people seated
 
 #abandono = people who leave the system
 
@@ -554,6 +551,7 @@ print("Número medio de personas en el comedor")
 SUMA2/TM
 
 TM
+
 
 
 
