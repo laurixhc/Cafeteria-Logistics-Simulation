@@ -307,26 +307,25 @@ ServicioCO = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT
 
 ##############NOTATION##############
 
-#           Etapas
+#           Stages
 #   1.
-#     1.1 Servicio microondas
-#     1.2 Servicio menú
-#     1.3 Servicio barra
+#     1.1 Microwave service
+#     1.2 Menu service
+#     1.3 Bar service
 
-#   2. Comedor
+#   2. Dinning room
 
-#En este problema tendremos en cuenta el aforo de la cafeteria
-#Consideraremos: 1 microondas que no se estropea, 1 camarero y no tardamos 
-#tiempo en sentarnos.
+#In this problem we will take into account the capacity of the cafeteria
+#We'll consider: 1 microwave that doesn't break down, 1 waiter, and it doesn't take long to be seated.
 
-#N11 = Número de personas en la etapa 1.1
-#N12 = Número de personas en la etapa 1.2
-#N13 = Número de personas en la la etapa 1.3
-#N2 = Número de personas en la la etapa 2
+#N11 = Number of people on the stage 1.1
+#N12 = Number of people on the stage 1.2
+#N13 = Number of people on the stage 1.3
+#N2 = Number of people on the stage 2
 
-#TM = instante en el tiempo de simulación
-#TANT = instante anterior
-#Tmax = tiempo máximo de simulación
+#TM = instant in simulation time
+#TANT = previous moment
+#Tmax = maximum simulation time
 
 #DLMI = Distribución de tiempos de llegada al microondas
 #DLCA = Distribución de tiempos de llegada a la cafetería
@@ -370,9 +369,9 @@ ServicioCO = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT
 #total_servicio13 = número de personas que han sido atendidas en la barra
 #total_servicio2 = número de personas que se han sentado
 
-#abandono = personas que abandonan el sistema
+#abandono = people who leave the system
 
-##############PARÁMETROS##############
+##############PARAMETERS##############
 
 lambdamic = 2 #personas que llegan por minuto al microondas
 meanmic = 2 #media de tiempo que tarda el microondas
@@ -555,5 +554,6 @@ print("Número medio de personas en el comedor")
 SUMA2/TM
 
 TM
+
 
 
