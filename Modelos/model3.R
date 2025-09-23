@@ -435,7 +435,7 @@ TSBA = Inf
 TSCO = Inf
 
 
-##############PROGRAMA PRINCIPAL##############
+##############MAIN PROGRAM##############
 while(TM<Tmax){
   TM = min(TLMI, TLCA, TSMI, TSME, TSBA, TSCO)
   Estado = 1*(TM == TLMI) + 2*(TM == TLCA) + 3*(TM == TSMI) + 4*(TM == TSME) + 5*(TM == TSBA) + 6*(TM == TSCO)
@@ -536,21 +536,22 @@ while(TM<Tmax){
   
 }
 
-print("Número de personas en cola en la cafetería")
+print("Number of people in line at the cafeteria")
 N12+N13
-print("Número de personas en la cola de los microondas")
+print("Number of people in line at the microwave")
 N11
-print("Número medio de personas en cada servicio:")
-print("Número medio de personas en el microondas")
+print("Average number of people in each service:")
+print("Average number of people in the microwave")
 SUMA11/TM
-print("Número medio de personas en menú")
+print("Average number of people on the menu")
 SUMA12/TM
-print("Número medio de personas en la barra")
+print("Average number of people at the bar")
 SUMA13/TM
-print("Número medio de personas en el comedor")
+print("Average number of people in the dining room")
 SUMA2/TM
 
 TM
+
 
 
 
