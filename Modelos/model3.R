@@ -385,7 +385,7 @@ aforomax = 140
 mucomida = 40 #valor mu para la normal truncada del tiempo en comer
 sigmacomida = 10 #valor sigma para la normal truncada del tiempo en comer
 
-##############INICIALIZACIÓN##############
+##############INICIALIZATION##############
 N11 = 0
 N12 = 0
 N13 = 0
@@ -415,13 +415,13 @@ total_servicio13=0
 total_servicio2=0
 
 abandono=0
-f=0 #esto es para ver cuanta gente no calienta la comida
+f=0 #This is to see how many people don't heat the food.
 
 Asientos = rep(NA, aforomax)
 Microondas = rep(NA, 4)
 Camareros = rep(NA, 2)
 
-#Generamos las primeras llegadas
+#We generate the first arrivals
 set.seed(3)
 DLMI = r_exp(1,lambdamic)
 DLCA = r_exp(1,lambdacaf)
@@ -551,6 +551,7 @@ print("Average number of people in the dining room")
 SUMA2/TM
 
 TM
+
 
 
 
