@@ -2,8 +2,8 @@
 
 rtriang = function(n){
   u = runif(n)
-  muestra = ifelse(u<1/2, (1/3)*(1 + sqrt(2*u)), 1 - (1/3)*sqrt(2*(1-u)))
-  return(muestra)
+  sample = ifelse(u<1/2, (1/3)*(1 + sqrt(2*u)), 1 - (1/3)*sqrt(2*(1-u)))
+  return(sample)
 }
 
 rnormal = function(n, mu, sigma){
@@ -11,23 +11,23 @@ rnormal = function(n, mu, sigma){
     u1 = runif(n)
     u2 = runif(n)
     x = sqrt(-2*log(u2))*cos(2*pi*u1)
-    muestra = x
-    muestra2 = muestra*sigma+mu
+    sample = x
+    sample2 = sample*sigma+mu
   }else{
     u1 = runif(n/2)
     u2 = runif(n/2)
     x = sqrt(-2*log(u2))*cos(2*pi*u1)
     y = sqrt(-2*log(u2))*sin(2*pi*u1)
-    muestra = c(x,y)
-    muestra2 = muestra*sigma+mu
+    sample = c(x,y)
+    sample2 = sample*sigma+mu
   }
-  return(muestra2)
+  return(sample2)
 }
 
 r_exp = function(n, lambda){
   u = runif(n)
-  muestra = -log(1-u)/lambda
-  return(muestra)
+  sample = -log(1-u)/lambda
+  return(sample)
 }
 
 rlog_normal = function(n, mu, sigma){
@@ -35,8 +35,8 @@ rlog_normal = function(n, mu, sigma){
     u1 = runif(n)
     u2 = runif(n)
     x = sqrt(-2*log(u2))*sin(2*pi*u1)
-    muestra2 = x*sigma+mu
-    muestra = exp(muestra2)
+    sample2 = x*sigma+mu
+    sample = exp(sample2)
     
   }else{
     u1 = runif(n/2)
@@ -44,38 +44,38 @@ rlog_normal = function(n, mu, sigma){
     x = sqrt(-2*log(u2))*cos(2*pi*u1)
     y = sqrt(-2*log(u2))*sin(2*pi*u1)
     z = c(x,y)
-    muestra2 = z*sigma+mu
-    muestra = exp(muestra2)
+    sample2 = z*sigma+mu
+    sample = exp(sample2)
   }
-  return (muestra)
+  return (sample)
 }
 rnormal_truncada = function(n, mu, sigma){
-  muestrat = c()
+  samplet = c()
   if (n%%2 == 1){
-    while (length(muestrat) == 0){
+    while (length(samplet) == 0){
       u1 = runif(n)
       u2 = runif(n)
       x = sqrt(-2*log(u2))*cos(2*pi*u1)
-      muestra = x
-      muestra2 = muestra*sigma+mu
-      muestrat=muestra2[muestra2>15]
+      sample = x
+      sample2 = sample*sigma+mu
+      samplet=sample2[sample2>15]
     }
   }
   else{
-    while (length(muetrat) == 0){
+    while (length(samplet) == 0){
       u1 = runif(n/2)
       u2 = runif(n/2)
       x = sqrt(-2*log(u2))*cos(2*pi*u1)
       y = sqrt(-2*log(u2))*sin(2*pi*u1)
-      muestra = c(x,y)
-      muestra2 = muestra*sigma+mu
-      muestrat=muestra2[muestra2>15]
+      sample = c(x,y)
+      sample2 = sample*sigma+mu
+      samplet=sample2[sample2>15]
     }
   }
-  return(muestrat[n])
+  return(samplet[n])
 }
 
-##############Creacción de subrutinas##############
+##############Creating subroutines##############
 
 LlegadaMI = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, SUMA22, TM, TANT, TSMI, Microondas, PMI, AsientosSA, AsientosCaf, total_llegadas11,total_llegadas21, total_llegadas22,f){
   N11 = N11 + 1
@@ -712,5 +712,6 @@ print("Número medio de personas en la cafetería")
 SUMA22/TM
 
 TM
+
 
 
