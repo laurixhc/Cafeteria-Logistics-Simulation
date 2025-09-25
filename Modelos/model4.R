@@ -212,8 +212,8 @@ ServicioMI = function(N11, N12, N13, N21, N22, SUMA11, SUM12, SUMA13, SUMA21, SU
     }
     
     DSMI = aux
-    posiciones=which(is.na(Microondas))
-    Microondas[posiciones[1]]=TM+DSMI
+    positions=which(is.na(Microondas))
+    Microondas[positions[1]]=TM+DSMI
   }
   
   TSMI=min(Microondas,na.rm = TRUE)
@@ -221,8 +221,8 @@ ServicioMI = function(N11, N12, N13, N21, N22, SUMA11, SUM12, SUMA13, SUMA21, SU
   
   if(any(is.na(AsientosSA))){
     DSCO_SA = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones = which(is.na(AsientosSA))
-    AsientosSA[posiciones[1]] = TM+DSCO_SA
+    positions = which(is.na(AsientosSA))
+    AsientosSA[positions[1]] = TM+DSCO_SA
     TSCO_SA = min(AsientosSA,na.rm = TRUE)
     SUMA21 = SUMA21 + (N21-1)*(TM-TANT)
     SUMA22 = SUMA22 + (N22)*(TM-TANT)
@@ -236,8 +236,8 @@ ServicioMI = function(N11, N12, N13, N21, N22, SUMA11, SUM12, SUMA13, SUMA21, SU
     
     if(any(is.na(AsientosCaf))){
       DSCO_Caf = rnormal_truncada(1, mucomida, sigmacomida)
-      posiciones = which(is.na(AsientosCaf))
-      AsientosCaf[posiciones[1]] = TM+DSCO_Caf
+      positions = which(is.na(AsientosCaf))
+      AsientosCaf[positions[1]] = TM+DSCO_Caf
       TSCO_Caf = min(AsientosCaf,na.rm = TRUE)
     }
     
@@ -268,8 +268,8 @@ ServicioME = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, S
   
   if(any(is.na(AsientosCaf))){
     DSCO_Caf = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(AsientosCaf))
-    AsientosCaf[posiciones[1]]=TM+DSCO_Caf
+    positions=which(is.na(AsientosCaf))
+    AsientosCaf[positions[1]]=TM+DSCO_Caf
     TSCO_Caf=min(AsientosCaf,na.rm = TRUE)
     
     SUMA22 = SUMA22 + (N22-1)*(TM-TANT)
@@ -284,8 +284,8 @@ ServicioME = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, S
     
     if(any(is.na(AsientosSA))){
       DSCO_SA = rnormal_truncada(1, mucomida, sigmacomida)
-      posiciones=which(is.na(AsientosSA))
-      AsientosSA[posiciones[1]]=TM+DSCO_SA
+      positions=which(is.na(AsientosSA))
+      AsientosSA[positions[1]]=TM+DSCO_SA
       TSCO_SA=min(AsientosSA,na.rm = TRUE)
     }
     
@@ -315,8 +315,8 @@ ServicioBA = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, S
   if (length(which(is.na(Camareros)))>=1 & N13 - length(which(!is.na(Camareros)))>0){
     
     DSBA = rlog_normal(1,mubar,sigmabar)
-    posiciones=which(is.na(Camareros))
-    Camareros[posiciones[1]]=TM+DSBA
+    positions=which(is.na(Camareros))
+    Camareros[positions[1]]=TM+DSBA
   }
   
   TSBA=min(Camareros,na.rm = TRUE)
@@ -324,8 +324,8 @@ ServicioBA = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, S
   
   if(N2 >= 1 & any(is.na(AsientosCaf))){
     DSCO_Caf = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(AsientosCaf))
-    AsientosCaf[posiciones[1]]=TM+DSCO_Caf
+    positions=which(is.na(AsientosCaf))
+    AsientosCaf[positions[1]]=TM+DSCO_Caf
     TSCO_Caf=min(AsientosCaf,na.rm = TRUE)
     
     SUMA22 = SUMA22 + (N22-1)*(TM-TANT)
@@ -341,8 +341,8 @@ ServicioBA = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, S
     
     if(any(is.na(AsientosSA))){
       DSCO_SA = rnormal_truncada(1, mucomida, sigmacomida)
-      posiciones=which(is.na(AsientosSA))
-      AsientosSA[posiciones[1]]= TM + DSCO_SA 
+      positions=which(is.na(AsientosSA))
+      AsientosSA[positions[1]]= TM + DSCO_SA 
       TSCO_SA=min(AsientosSA,na.rm = TRUE)
     }
     
@@ -370,8 +370,8 @@ ServicioCO_SA = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21
   if (length(which(is.na(AsientosSA)))>=1 & N21 - length(which(!is.na(AsientosSA)))>0){
     
     DSCO_SA = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(AsientosSA))
-    AsientosSA[posiciones[1]]=TM+DSCO_SA
+    positions=which(is.na(AsientosSA))
+    AsientosSA[positions[1]]=TM+DSCO_SA
   }
   TSCO_SA=min(AsientosSA,na.rm = TRUE)
   
@@ -396,8 +396,8 @@ ServicioCO_Caf = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA2
   if (length(which(is.na(AsientosCaf)))>=1 & N22 - length(which(!is.na(AsientosCaf)))>0){
     
     DSCO_Caf = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(AsientosCaf))
-    AsientosCaf[posiciones[1]]=TM+DSCO_Caf
+    positions=which(is.na(AsientosCaf))
+    AsientosCaf[positions[1]]=TM+DSCO_Caf
   }
   
   TSCO_Caf=min(AsientosCaf,na.rm = TRUE)
@@ -712,6 +712,7 @@ print("Número medio de personas en la cafetería")
 SUMA22/TM
 
 TM
+
 
 
 
