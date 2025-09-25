@@ -94,8 +94,8 @@ LlegadaMI = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, SU
     if(N21 >= 1 & any(is.na(AsientosSA))){
       total_llegadas21 = total_llegadas21 + 1
       DSCO_SA = rnormal_truncada(1, mucomida, sigmacomida)
-      posiciones = which(is.na(AsientosSA))
-      AsientosSA[posiciones[1]] = TM+DSCO_SA
+      positions = which(is.na(AsientosSA))
+      AsientosSA[positions[1]] = TM+DSCO_SA
       TSCO_SA = min(AsientosSA,na.rm = TRUE)
       SUMA21 = SUMA21 + (N21-1)*(TM-TANT)
       SUMA22 = SUMA22 + (N22)*(TM-TANT)
@@ -107,8 +107,8 @@ LlegadaMI = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, SU
       if(N22 >= 1 & any(is.na(AsientosCaf))){
         total_llegadas22 = total_llegadas22 + 1
         DSCO_Caf = rnormal_truncada(1, mucomida, sigmacomida)
-        posiciones = which(is.na(AsientosCaf))
-        AsientosCaf[posiciones[1]] = TM+DSCO_Caf
+        positions = which(is.na(AsientosCaf))
+        AsientosCaf[positions[1]] = TM+DSCO_Caf
         TSCO_Caf = min(AsientosCaf,na.rm = TRUE)
       }
       SUMA21 = SUMA21 + (N21)*(TM-TANT)
@@ -123,8 +123,8 @@ LlegadaMI = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, SU
         aux=rnormal(1,meanmic,sdmic)
       }
       DSMI = aux
-      posiciones=which(is.na(Microondas))
-      Microondas[posiciones[1]]=TM+DSMI
+      positions=which(is.na(Microondas))
+      Microondas[positions[1]]=TM+DSMI
       TSMI=min(Microondas,na.rm = TRUE)
     }
     SUMA11 = SUMA11 + (N11 - 1)*(TM - TANT)
@@ -177,8 +177,8 @@ LlegadaCA = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, SU
     else{
       if(any(is.na(Camareros))){
         DSBA = rlog_normal(1,mubar,sigmabar)
-        posiciones=which(is.na(Camareros))
-        Camareros[posiciones[1]]=TM+DSBA
+        positions=which(is.na(Camareros))
+        Camareros[positions[1]]=TM+DSBA
         TSBA=min(Camareros,na.rm = TRUE)
       }
       SUMA13 = SUMA13 + (N13 - 1)*(TM-TANT)
@@ -712,6 +712,7 @@ print("Número medio de personas en la cafetería")
 SUMA22/TM
 
 TM
+
 
 
 
