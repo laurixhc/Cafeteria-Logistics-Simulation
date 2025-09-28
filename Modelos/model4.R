@@ -414,17 +414,17 @@ ServicioCO_Caf = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA2
 }
 
 
-##############NOTACIÓN##############
+##############NOTATION##############
 
-#           Etapas
+#           Stages
 #   1.
-#     1.1 Servicio microondas
-#     1.2 Servicio menú
-#     1.3 Servicio barra
+#     1.1 Microwave service
+#     1.2 Menu service
+#     1.3 Bar service
 
 #   2. 
-#     2.1 Servicio sala azul
-#     2.2 Servicio cafetería
+#     2.1 Blue room service (microwave service is in this room)
+#     2.2 Cafeteria service (menu and bar services are in the cafeteria)
 
 #En este problema tendremos en cuenta el aforo de la cafeteria y de la sala azul
 #Consideraremos: 4 microondas que no se estropean, 2 camarero y no tardamos 
@@ -712,6 +712,7 @@ print("Número medio de personas en la cafetería")
 SUMA22/TM
 
 TM
+
 
 
 
