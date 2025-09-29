@@ -439,17 +439,17 @@ ServicioCO_Caf = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA2
 #TANT = previous instant
 #Tmax = maximum time of simulation
 
-#DLMI = Distribución de tiempos de llegada al microondas
-#DLCA = Distribución de tiempos de llegada a la cafetería
+#DLMI = Distribution of arrival times at the microwave
+#DLCA = Distribution of arrival times at the cafeteria
 
-#DSMI = Distribución tiempos de servicio del microondas
-#DSME = Distribución tiempos de servicio del menú
-#DSBA = Distribución tiempos de servicio de la barra
-#DSCO_SA = Distribución tiempos de servicio de la sala azul
-#DSCO_Caf = Distribución tiempos de servicio de la cafetería
+#DSMI = Distribution of microwave service times
+#DSME = Distribution of menu service times
+#DSBA = Distribution of bar service times
+#DSCO_SA = Distribution of blue room service times
+#DSCO_Caf = Distribution of cafeteria service times
 
-#TLMI = Instante de la próxima llegada al microondas
-#TLCA = Instante de la próxima llegada a la cafetería
+#TLMI = Instant of the next arrival at the microwave
+#TLCA = Instant of the next arrival at the cafeteria
 
 #TSMI = Instante de la próxima finalización del servicio del microondas
 #TSME = Instante de la próxima finalización del servicio del menú
@@ -711,6 +711,7 @@ print("Número medio de personas en la cafetería")
 SUMA22/TM
 
 TM
+
 
 
 
