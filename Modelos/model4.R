@@ -426,19 +426,18 @@ ServicioCO_Caf = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA2
 #     2.1 Blue room service (microwave service is in this room)
 #     2.2 Cafeteria service (menu and bar services are in the cafeteria)
 
-#En este problema tendremos en cuenta el aforo de la cafeteria y de la sala azul
-#Consideraremos: 4 microondas que no se estropean, 2 camarero y no tardamos 
-#tiempo en sentarnos.
+#In this problem, we'll consider the capacity of the cafeteria and the blue room.
+#We'll consider: 4 microwaves that don't break down, 2 waiters, and it doesn't take long to be seated.
 
-#N11 = Número de personas en la etapa 1.1
-#N12 = Número de personas en la etapa 1.2
-#N13 = Número de personas en la la etapa 1.3
-#N21 = Número de personas en la la etapa 2.1
-#N22 = Número de personas en la la etapa 2.2
+#N11 = Number of people on the stage 1.1
+#N12 = Number of people on the stage 1.2
+#N13 = Number of people on the stage 1.3
+#N21 = Number of people on the stage 2.1
+#N22 = Number of people on the stage 2.2
 
-#TM = instante en el tiempo de simulación
-#TANT = instante anterior
-#Tmax = tiempo máximo de simulación
+#TM = instant in simulation time
+#TANT = previous instant
+#Tmax = maximum time of simulation
 
 #DLMI = Distribución de tiempos de llegada al microondas
 #DLCA = Distribución de tiempos de llegada a la cafetería
@@ -712,6 +711,7 @@ print("Número medio de personas en la cafetería")
 SUMA22/TM
 
 TM
+
 
 
 
