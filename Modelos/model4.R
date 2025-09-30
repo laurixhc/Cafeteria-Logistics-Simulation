@@ -451,11 +451,11 @@ ServicioCO_Caf = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA2
 #TLMI = Instant of the next arrival at the microwave
 #TLCA = Instant of the next arrival at the cafeteria
 
-#TSMI = Instante de la próxima finalización del servicio del microondas
-#TSME = Instante de la próxima finalización del servicio del menú
-#TSBA = Instante de la próxima finalización del servicio de la barra
-#TSCO_SA = Instante de la próxima finalización del servicio de la sala azul
-#TSCO_Caf = Instante de la próxima finalización del servicio de la cafetería
+#TSMI = Instant of the next microwave service completion
+#TSME = Instant of the next menu service completion
+#TSBA = Instant of the next bar service completion
+#TSCO_SA = Instant of the next blue room service completion
+#TSCO_Caf = Instant of the next cafeteria service completion
 
 
 #AsientosSA = Vector de asientos de la sala azul que indica si está vacio el asiento y 
@@ -467,11 +467,11 @@ ServicioCO_Caf = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA2
 #Camareros= Vector que indica qué camareros están libres con NA u ocupados con
 #           el próximo fin de servicio
 
-#SUMA11 = Contador suma acumulada etapa 1.1
-#SUMA12 = Contador suma acumulada etapa 1.2
-#SUMA13 = Contador suma acumulada etapa etapa 1.3
-#SUMA21 = Contador suma acumulada etapa etapa 2.1
-#SUMA22 = Contador suma acumulada etapa etapa 2.2
+#SUMA11 = Counter cumulative sum stage 1.1
+#SUMA12 = Counter cumulative sum stage 1.2
+#SUMA13 = Counter cumulative sum stage 1.3
+#SUMA21 = Counter cumulative sum stage 2.1
+#SUMA22 = Counter cumulative sum stage 2.2
 
 
 ##############PARÁMETROS##############
@@ -711,6 +711,7 @@ print("Número medio de personas en la cafetería")
 SUMA22/TM
 
 TM
+
 
 
 
