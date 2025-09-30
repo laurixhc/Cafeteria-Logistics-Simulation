@@ -458,14 +458,10 @@ ServicioCO_Caf = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA2
 #TSCO_Caf = Instant of the next cafeteria service completion
 
 
-#AsientosSA = Vector de asientos de la sala azul que indica si está vacio el asiento y 
-#           si no el próximo fin de comida de ese asiento
-#AsientosCaf = Vector de asientos de la cafetería que indica si está vacio el asiento y 
-#           si no el próximo fin de comida de ese asiento
-#Microondas= Vector que indica qué microondas están libres con NA u ocupados
-#            con el próximo fin de servicio
-#Camareros= Vector que indica qué camareros están libres con NA u ocupados con
-#           el próximo fin de servicio
+#AsientosSA = Blue room seating vector indicating whether the seat is empty and if not, the next meal end for that seat
+#AsientosCaf = Cafeteria seating vector indicating whether the seat is empty and, if not, the next meal end for that seat
+#Microondas= Vector indicating which microwaves are free with NA or busy with the next end of service
+#Camareros= Vector indicating which waiters are free with NA or busy with the next end of service
 
 #SUMA11 = Counter cumulative sum stage 1.1
 #SUMA12 = Counter cumulative sum stage 1.2
@@ -711,6 +707,7 @@ print("Número medio de personas en la cafetería")
 SUMA22/TM
 
 TM
+
 
 
 
