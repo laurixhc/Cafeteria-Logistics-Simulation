@@ -470,7 +470,7 @@ ServicioCO_Caf = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA2
 #SUMA22 = Counter cumulative sum stage 2.2
 
 
-##############PARÁMETROS##############
+##############PARAMETERS##############
 lambdamic = 2 #personas que llegan por minuto al microondas
 meanmic = 2 #media de tiempo que tarda el microondas
 sdmic = 0.5 #desviacion del tiempo del microondas
@@ -486,7 +486,7 @@ aforomax = 140
 mucomida = 40 #valor mu para la normal truncada del tiempo en comer
 sigmacomida = 10 #valor sigma para la normal truncada del tiempo en comer
 
-##############INICIALIZACIÓN##############
+##############INICIALIZATION##############
 N11 = 0
 N12 = 0
 N13 = 0
@@ -707,6 +707,7 @@ print("Número medio de personas en la cafetería")
 SUMA22/TM
 
 TM
+
 
 
 
