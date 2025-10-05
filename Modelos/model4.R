@@ -516,7 +516,7 @@ AsientosSA = rep(NA, aforomax_SA)
 Microondas = rep(NA, 4)
 Camareros = rep(NA, 2)
 
-#Generamos las primeras llegadas
+#We generate the first arrivals
 set.seed(1)
 DLMI = rexp(1,rate=lambdamic)
 DLCA = rexp(1,rate=lambdacaf)
@@ -541,7 +541,7 @@ total_servicio13 = 0
 total_servicio21 = 0
 total_servicio22 = 0
 
-##############PROGRAMA PRINCIPAL##############
+##############MAIN PROGRAM##############
 while(TM<Tmax){
   TM = min(TLMI, TLCA, TSMI, TSME, TSBA, TSCO_SA, TSCO_Caf)
   Estado = 1*(TM == TLMI) + 2*(TM == TLCA) + 3*(TM == TSMI) + 4*(TM == TSME) + 5*(TM == TSBA) + 6*(TM == TSCO_SA) + 7*(TM == TSCO_Caf)
@@ -707,6 +707,7 @@ print("Número medio de personas en la cafetería")
 SUMA22/TM
 
 TM
+
 
 
 
