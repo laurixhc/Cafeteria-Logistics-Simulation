@@ -690,23 +690,24 @@ while(TM<Tmax){
   
   
 }
-print("Número de personas en la cola de la cafetería")
+print("Number of people in the cafeteria queue")
 N12+N13
-print("Número de personas en la cola de los microondas")
+print("Number of people in the microwave queue")
 N11
-print("Número medio de personas en cada servicio:")
-print("Número medio de personas en el microondas")
+print("Average number of people in each service:")
+print("Average number of people in the microwave")
 SUMA11/TM
-print("Número medio de personas en menú")
+print("Average number of people on the menu")
 SUMA12/TM
-print("Número medio de personas en la barra")
+print("Average number of people at the bar")
 SUMA13/TM
-print("Número medio de personas en la sala azul")
+print("Average number of people in the blue room")
 SUMA21/TM
-print("Número medio de personas en la cafetería")
+print("Average number of people in the cafeteria")
 SUMA22/TM
 
 TM
+
 
 
 
