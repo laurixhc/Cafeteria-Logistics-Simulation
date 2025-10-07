@@ -3,8 +3,8 @@ sdmic = 0.5 #microwave time deviation
 
 desv=1.5
 med=3
-sigmabar = sqrt( log(1+desv^2/med^2) )#valor sigma para la lognormal del servicio de la barra
-mubar = (log(med^2)-desv^2)/2 #valor media para la lognormal del servicio de la barra
+sigmabar = sqrt( log(1+desv^2/med^2) )#sigma value for the lognormal of the bar service
+mubar = (log(med^2)-desv^2)/2 #mean value for the lognormal of the bar service
 
 
 mucomida = 40 #valor mu para la normal truncada del tiempo en comer
@@ -621,3 +621,4 @@ plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
      ylab='Eficiencia', main='Eficiencia comedor Modelo 1')
 
 points(140,1, lwd=3, col='red', type='b', add=TRUE)
+
