@@ -7,8 +7,8 @@ sigmabar = sqrt( log(1+desv^2/med^2) )#sigma value for the lognormal of the bar 
 mubar = (log(med^2)-desv^2)/2 #mean value for the lognormal of the bar service
 
 
-mucomida = 40 #valor mu para la normal truncada del tiempo en comer
-sigmacomida = 10 #valor sigma para la normal truncada del tiempo en comer
+mucomida = 40 #mu value for the truncated normal eating time
+sigmacomida = 10 #sigma value for the truncated normal eating time
 
 rtriang = function(n){
   u = runif(n)
@@ -621,4 +621,5 @@ plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
      ylab='Eficiencia', main='Eficiencia comedor Modelo 1')
 
 points(140,1, lwd=3, col='red', type='b', add=TRUE)
+
 
