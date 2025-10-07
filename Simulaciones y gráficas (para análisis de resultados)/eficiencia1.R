@@ -1,5 +1,5 @@
-meanmic = 2 #media de tiempo que tarda el microondas
-sdmic = 0.5 #desviacion del tiempo del microondas
+meanmic = 2 #average time it takes to use the microwave
+sdmic = 0.5 #microwave time deviation
 
 desv=1.5
 med=3
@@ -619,4 +619,5 @@ while (aforomax<250){
 
 plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
      ylab='Eficiencia', main='Eficiencia comedor Modelo 1')
+
 points(140,1, lwd=3, col='red', type='b', add=TRUE)
