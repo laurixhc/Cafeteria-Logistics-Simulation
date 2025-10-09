@@ -36,8 +36,8 @@ rnormal = function(n, mu, sigma){
 
 r_exp = function(n, lambda){
   u = runif(n)
-  muestra = -log(1-u)/lambda
-  return(muestra)
+  sample = -log(1-u)/lambda
+  return(sample)
 }
 
 rlog_normal = function(n, mu, sigma){
@@ -621,6 +621,7 @@ plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
      ylab='Eficiencia', main='Eficiencia comedor Modelo 1')
 
 points(140,1, lwd=3, col='red', type='b', add=TRUE)
+
 
 
 
