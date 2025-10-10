@@ -115,9 +115,9 @@ LlegadaMI = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT,
 
 LlegadaCA = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSME, TSBA,total_llegadas12,total_llegadas13){
   u = runif(1)
-  pedido = 1*(u<=0.55) + 2*(u>0.55) #1 menú, 2 bocata
+  order = 1*(u<=0.55) + 2*(u>0.55) #1 menú, 2 bocata
   
-  if (pedido ==1){
+  if (order ==1){
     N12 = N12 + 1
     total_llegadas12=total_llegadas12+1
     
@@ -129,7 +129,7 @@ LlegadaCA = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT,
     SUMA12 = SUMA12 + (N12-1)*(TM-TANT)
     SUMA13 = SUMA13 + N13*(TM-TANT)
   }
-  else if (pedido ==2){
+  else if (order ==2){
     N13 = N13 + 1
     total_llegadas13=total_llegadas13+1
     
@@ -622,6 +622,7 @@ plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
      ylab='Eficiencia', main='Eficiencia comedor Modelo 1')
 
 points(140,1, lwd=3, col='red', type='b', add=TRUE)
+
 
 
 
