@@ -168,8 +168,8 @@ ServicioMI = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   if(any(is.na(Asientos))){
     
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -197,8 +197,8 @@ ServicioME = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
     
     
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -226,8 +226,8 @@ ServicioBA = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
     
     
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -251,8 +251,8 @@ ServicioCO = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT
   
   if (length(which(is.na(Asientos)))>=1 & N2 - length(which(!is.na(Asientos)))>0){
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
   }
   TSCO=min(Asientos,na.rm = TRUE)
   
@@ -622,6 +622,7 @@ plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
      ylab='Eficiencia', main='Eficiencia comedor Modelo 1')
 
 points(140,1, lwd=3, col='red', type='b', add=TRUE)
+
 
 
 
