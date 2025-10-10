@@ -45,8 +45,8 @@ rlog_normal = function(n, mu, sigma){
     u1 = runif(n)
     u2 = runif(n)
     x = sqrt(-2*log(u2))*sin(2*pi*u1)
-    muestra2 = x*sigma+mu
-    muestra = exp(muestra2)
+    sample2 = x*sigma+mu
+    sample = exp(sample2)
     
   }else{
     u1 = runif(n/2)
@@ -54,8 +54,8 @@ rlog_normal = function(n, mu, sigma){
     x = sqrt(-2*log(u2))*cos(2*pi*u1)
     y = sqrt(-2*log(u2))*sin(2*pi*u1)
     z = c(x,y)
-    muestra2 = z*sigma+mu
-    muestra = exp(muestra2)
+    sample2 = z*sigma+mu
+    sample = exp(sample2)
   }
   return (muestra)
 }
@@ -621,6 +621,7 @@ plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
      ylab='Eficiencia', main='Eficiencia comedor Modelo 1')
 
 points(140,1, lwd=3, col='red', type='b', add=TRUE)
+
 
 
 
