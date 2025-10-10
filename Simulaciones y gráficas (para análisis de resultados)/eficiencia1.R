@@ -57,32 +57,33 @@ rlog_normal = function(n, mu, sigma){
     sample2 = z*sigma+mu
     sample = exp(sample2)
   }
-  return (muestra)
+  return (sample)
 }
+
 rnormal_truncada = function(n, mu, sigma){
-  muestrat = c()
+  samplet = c()
   if (n%%2 == 1){
-    while (length(muestrat) == 0){
+    while (length(samplet) == 0){
       u1 = runif(n)
       u2 = runif(n)
       x = sqrt(-2*log(u2))*cos(2*pi*u1)
-      muestra = x
-      muestra2 = muestra*sigma+mu
-      muestrat=muestra2[muestra2>15]
+      sample = x
+      sample2 = sample*sigma+mu
+      samplet=sample2[sample2>15]
     }
   }
   else{
-    while (length(muetrat) == 0){
+    while (length(samplet) == 0){
       u1 = runif(n/2)
       u2 = runif(n/2)
       x = sqrt(-2*log(u2))*cos(2*pi*u1)
       y = sqrt(-2*log(u2))*sin(2*pi*u1)
-      muestra = c(x,y)
-      muestra2 = muestra*sigma+mu
-      muestrat=muestra2[muestra2>15]
+      sample = c(x,y)
+      sample2 = sample*sigma+mu
+      samplet=sample2[sample2>15]
     }
   }
-  return(muestrat[n])
+  return(samplet[n])
 }
 
 LlegadaMI = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSMI,total_llegadas11){
@@ -621,6 +622,7 @@ plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
      ylab='Eficiencia', main='Eficiencia comedor Modelo 1')
 
 points(140,1, lwd=3, col='red', type='b', add=TRUE)
+
 
 
 
