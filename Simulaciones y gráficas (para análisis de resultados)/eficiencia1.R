@@ -440,7 +440,7 @@ lambdamic = lambdamic + 0.1
 lambdacaf = lambdacaf + 0.1
 }
 
-#Microondas
+#Microwave
 plot(seq(0.4,5.9,by=0.1), intMIC, type='o', lwd=2, xlab='lambda',
      ylab='Eficiencia', main='Eficiencia microondas Modelo 1')
 points(2,0.2486, lwd=3, col='red', type='b', add=TRUE)
@@ -450,12 +450,12 @@ plot(seq(0.4,5.9,by=0.1), intMEN, type='o', lwd=2, xlab='lambda',
      ylab='Eficiencia', main='Eficiencia menu modelo 1')
 points(3,0.8884, lwd=3, col='red', type='b', add=TRUE)
 
-#Barra
+#Bar
 plot(seq(0.4,5.9,by=0.1), intBAR, type='o', lwd=2, xlab='lambda',
      ylab='Eficiencia', main='Eficiencia barra modelo 1')
 points(3,0.673, lwd=3, col='red', type='b', add=TRUE)
 
-#Comparacion
+#Comparison
 plot(seq(0.4,5.9,by=0.1), intMIC, type='o', lwd=2, xlab='lambda',
      ylab='intensidad de trafico', col='darkgreen', ylim=c(0,1),
      main='Comparativa etapa 1 Modelo 1')
@@ -465,7 +465,7 @@ legend('topright', legend=c('Micro', 'Menu', 'Barra'),
        col=c('darkgreen','darkblue','red'), pch = c(15,15,15), lty = 1, bty = "n")
 
 
-#Asientos
+#Seating
 lambdamic = 2
 lambdacaf = 3
 aforomax = 80
@@ -619,9 +619,10 @@ while (aforomax<250){
 }
 
 plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
-     ylab='Eficiencia', main='Eficiencia comedor Modelo 1')
+     ylab='Efficiency', main='Dining Room Efficiency Model 1')
 
 points(140,1, lwd=3, col='red', type='b', add=TRUE)
+
 
 
 
