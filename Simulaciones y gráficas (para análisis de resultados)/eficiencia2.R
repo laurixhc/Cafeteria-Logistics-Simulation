@@ -1,22 +1,22 @@
-lambdamic = 2 #personas que llegan por minuto al microondas
-meanmic = 2 #media de tiempo que tarda el microondas
-sdmic = 0.5 #desviacion del tiempo del microondas
+lambdamic = 2 #people who come to the microwave per minute
+meanmic = 2 #average time it takes to use the microwave
+sdmic = 0.5 #microwave time deviation
 
-lambdacaf = 3 #personas que llegan por minuto a la cafeteria
+lambdacaf = 3 #people arriving at the cafeteria per minute
 desv=1.5
 med=3
-sigmabar = sqrt( log(1+desv^2/med^2) )#valor sigma para la lognormal del servicio de la barra
-mubar = (log(med^2)-desv^2)/2 #valor media para la lognormal del servicio de la barra
+sigmabar = sqrt( log(1+desv^2/med^2) )#sigma value for the lognormal of the bar service
+mubar = (log(med^2)-desv^2)/2 #mean value for the lognormal of the bar service
 
 
 
-mucomida = 40 #valor mu para la normal truncada del tiempo en comer
-sigmacomida = 10 #valor sigma para la normal truncada del tiempo en comer
+mucomida = 40 #mu value for the truncated normal eating time
+sigmacomida = 10 #sigma value for the truncated normal eating time
 
 rtriang = function(n){
   u = runif(n)
-  muestra = ifelse(u<1/2, (1/3)*(1 + sqrt(2*u)), 1 - (1/3)*sqrt(2*(1-u)))
-  return(muestra)
+  sample = ifelse(u<1/2, (1/3)*(1 + sqrt(2*u)), 1 - (1/3)*sqrt(2*(1-u)))
+  return(sample)
 }
 
 rnormal = function(n, mu, sigma){
@@ -24,23 +24,23 @@ rnormal = function(n, mu, sigma){
     u1 = runif(n)
     u2 = runif(n)
     x = sqrt(-2*log(u2))*cos(2*pi*u1)
-    muestra = x
-    muestra2 = muestra*sigma+mu
+    sample = x
+    sample2 = sample*sigma+mu
   }else{
     u1 = runif(n/2)
     u2 = runif(n/2)
     x = sqrt(-2*log(u2))*cos(2*pi*u1)
     y = sqrt(-2*log(u2))*sin(2*pi*u1)
-    muestra = c(x,y)
-    muestra2 = muestra*sigma+mu
+    sample = c(x,y)
+    samplea2 = sample*sigma+mu
   }
-  return(muestra2)
+  return(sample2)
 }
 
 r_exp = function(n, lambda){
   u = runif(n)
-  muestra = -log(1-u)/lambda
-  return(muestra)
+  sample = -log(1-u)/lambda
+  return(sample)
 }
 
 rlog_normal = function(n, mu, sigma){
@@ -646,4 +646,5 @@ while (aforomax<250){
 
 plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
      ylab='Eficiencia', main='Eficiencia comedor Modelo 2')
+
 points(140,0.7564, lwd=3, col='red', type='b', add=TRUE)
