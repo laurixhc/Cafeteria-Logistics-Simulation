@@ -48,8 +48,8 @@ rlog_normal = function(n, mu, sigma){
     u1 = runif(n)
     u2 = runif(n)
     x = sqrt(-2*log(u2))*sin(2*pi*u1)
-    muestra2 = x*sigma+mu
-    muestra = exp(muestra2)
+    sample2 = x*sigma+mu
+    sample = exp(sample2)
     
   }else{
     u1 = runif(n/2)
@@ -57,10 +57,10 @@ rlog_normal = function(n, mu, sigma){
     x = sqrt(-2*log(u2))*cos(2*pi*u1)
     y = sqrt(-2*log(u2))*sin(2*pi*u1)
     z = c(x,y)
-    muestra2 = z*sigma+mu
-    muestra = exp(muestra2)
+    sample2 = z*sigma+mu
+    sample = exp(sample2)
   }
-  return (muestra)
+  return (sample)
 }
 
 rnormal_truncada = function(n, mu, sigma){
@@ -69,20 +69,20 @@ rnormal_truncada = function(n, mu, sigma){
     u1 = runif(n)
     u2 = runif(n)
     x = sqrt(-2*log(u2))*cos(2*pi*u1)
-    muestra = x
-    muestra2 = muestra*sigma+mu
-    muestrat=muestra2[muestra2>15]
+    sample = x
+    sample2 = sample*sigma+mu
+    samplet=sample2[sample2>15]
   }
   else{
     u1 = runif(n/2)
     u2 = runif(n/2)
     x = sqrt(-2*log(u2))*cos(2*pi*u1)
     y = sqrt(-2*log(u2))*sin(2*pi*u1)
-    muestra = c(x,y)
-    muestra2 = muestra*sigma+mu
-    muestrat=muestra2[muestra2>15]
+    sample = c(x,y)
+    sample2 = sample*sigma+mu
+    samplet=sample2[sample2>15]
   }
-  return(muestrat[n])
+  return(samplet[n])
 }
 
 LlegadaMI = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSMI, Microondas,total_llegadas11){
@@ -97,8 +97,8 @@ LlegadaMI = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT,
     }
     
     DSMI = aux
-    posiciones=which(is.na(Microondas))
-    Microondas[posiciones[1]]=TM+DSMI
+    positions=which(is.na(Microondas))
+    Microondas[positions[1]]=TM+DSMI
     TSMI=min(Microondas,na.rm = TRUE)
   }
   
@@ -119,9 +119,9 @@ LlegadaMI = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT,
 LlegadaCA = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSME, TSBA, Camareros,total_llegadas12,total_llegadas13){
   
   u = runif(1)
-  pedido = 1*(u<=0.55) + 2*(u>0.55) #1 menú, 2 bocata
+  order = 1*(u<=0.55) + 2*(u>0.55) #1 menú, 2 bocata
   
-  if (pedido ==1){
+  if (order ==1){
     N12 = N12 + 1
     total_llegadas12=total_llegadas12+1
     
@@ -135,14 +135,14 @@ LlegadaCA = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT,
     
   }
   
-  else if (pedido ==2){
+  else if (order ==2){
     N13 = N13 + 1
     total_llegadas13=total_llegadas13+1
     
     if(any(is.na(Camareros))){
       DSBA = rlog_normal(1,mubar,sigmabar)
-      posiciones=which(is.na(Camareros))
-      Camareros[posiciones[1]]=TM+DSBA
+      positions=which(is.na(Camareros))
+      Camareros[positions[1]]=TM+DSBA
       TSBA=min(Camareros,na.rm = TRUE)
     }
     
@@ -178,8 +178,8 @@ ServicioMI = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
     }
     
     DSMI = aux
-    posiciones=which(is.na(Microondas))
-    Microondas[posiciones[1]]=TM+DSMI
+    positions=which(is.na(Microondas))
+    Microondas[positions[1]]=TM+DSMI
   }
   
   TSMI=min(Microondas,na.rm = TRUE)
@@ -187,8 +187,8 @@ ServicioMI = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   
   if(any(is.na(Asientos))){
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -213,8 +213,8 @@ ServicioME = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   
   if(any(is.na(Asientos))){
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -239,8 +239,8 @@ ServicioBA = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   if (length(which(is.na(Camareros)))>=1 & N13 - length(which(!is.na(Camareros)))>0){
     
     DSBA = rlog_normal(1,mubar,sigmabar)
-    posiciones=which(is.na(Camareros))
-    Camareros[posiciones[1]]=TM+DSBA
+    positions=which(is.na(Camareros))
+    Camareros[positions[1]]=TM+DSBA
   }
   
   TSBA=min(Camareros,na.rm = TRUE)
@@ -248,8 +248,8 @@ ServicioBA = function(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM,
   
   if(N2 >= 1 & any(is.na(Asientos))){
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
     TSCO=min(Asientos,na.rm = TRUE)
   }
   
@@ -271,8 +271,8 @@ ServicioCO = function(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT
   
   if (length(which(is.na(Asientos)))>=1 & N2 - length(which(!is.na(Asientos)))>0){
     DSCO = rnormal_truncada(1, mucomida, sigmacomida)
-    posiciones=which(is.na(Asientos))
-    Asientos[posiciones[1]]=TM+DSCO
+    positions=which(is.na(Asientos))
+    Asientos[positions[1]]=TM+DSCO
   }
   TSCO=min(Asientos,na.rm = TRUE)
   
@@ -352,9 +352,9 @@ while (lambdamic<6 & lambdacaf<6){
     
     while(TM<Tmax){
       TM = min(TLMI, TLCA, TSMI, TSME, TSBA, TSCO)
-      Estado = 1*(TM == TLMI) + 2*(TM == TLCA) + 3*(TM == TSMI) + 4*(TM == TSME) + 5*(TM == TSBA) + 6*(TM == TSCO)
+      status = 1*(TM == TLMI) + 2*(TM == TLCA) + 3*(TM == TSMI) + 4*(TM == TSME) + 5*(TM == TSBA) + 6*(TM == TSCO)
       
-      if (Estado == 1){
+      if (status == 1){
         k = LlegadaMI(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSMI, Microondas,total_llegadas11)
         N11 = k[[1]]
         SUMA11 = k[[2]]
@@ -367,7 +367,7 @@ while (lambdamic<6 & lambdacaf<6){
         Microondas = k[[9]]
         total_llegadas11=k[[10]]
       }
-      else if (Estado == 2){
+      else if (status == 2){
         k = LlegadaCA(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSME, TSBA, Camareros,total_llegadas12,total_llegadas13)
         N12 = k[[1]]
         N13 = k[[2]]
@@ -383,7 +383,7 @@ while (lambdamic<6 & lambdacaf<6){
         total_llegadas12=k[[12]]
         total_llegadas13=k[[13]]
       }
-      else if (Estado == 3){
+      else if (status == 3){
         k = ServicioMI(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM, TANT, Asientos, Microondas,total_servicio11,total_llegadas2)
         N11 = k[[1]]
         N2 = k[[2]]
@@ -399,7 +399,7 @@ while (lambdamic<6 & lambdacaf<6){
         total_servicio11 = k[[12]]
         total_llegadas2 = k[[13]]
       }
-      else if (Estado == 4){
+      else if (status == 4){
         k = ServicioME(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM, TANT, Asientos,total_servicio12,total_llegadas2)
         N12 = k[[1]]
         N2 = k[[2]]
@@ -414,7 +414,7 @@ while (lambdamic<6 & lambdacaf<6){
         total_servicio12 = k[[11]]
         total_llegadas2 = k[[12]]
       }
-      else if (Estado == 5){
+      else if (status == 5){
         k = ServicioBA(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM, TANT, Asientos, Camareros,total_servicio13,total_llegadas2)
         N13 =k[[1]]
         N2 = k[[2]]
@@ -430,7 +430,7 @@ while (lambdamic<6 & lambdacaf<6){
         total_servicio13 = k[[12]]
         total_llegadas2 = k[[13]]
       }
-      else if (Estado == 6){
+      else if (status == 6){
         k = ServicioCO(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, Asientos,total_servicio2)
         N2 = k[[1]]
         SUMA11 = k[[2]]
@@ -648,3 +648,4 @@ plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
      ylab='Eficiencia', main='Eficiencia comedor Modelo 2')
 
 points(140,0.7564, lwd=3, col='red', type='b', add=TRUE)
+
