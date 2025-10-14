@@ -465,31 +465,31 @@ while (lambdamic<6 & lambdacaf<6){
   lambdacaf = lambdacaf + 0.1
 }
 
-#Microondas
+#Microwave
 plot(seq(0.9,6,by=0.1), intMIC, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', main='Evolucion de eficiencia microondas Modelo 2')
+     ylab='Efficiency', main='Evolution of microwave efficiency Model 2')
 points(2,0.948, lwd=3, col='red', type='b', add=TRUE)
 
 #Menu
 plot(seq(0.9,6,by=0.1), intMEN, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', main='Evolucion de eficiencia menu Modelo 2')
+     ylab='Efficiency', main='Evolution of menu efficiency Model 2')
 points(3,0.8892, lwd=3, col='red', type='b', add=TRUE)
 
-#Barra
+#Bar
 plot(seq(0.9,6,by=0.1), intBAR, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', main='Evolucion de eficiencia barra Modelo 2')
+     ylab='Efficiency', main='Evolution of bar efficiency Model 2')
 points(3,0.9897, lwd=3, col='red', type='b', add=TRUE)
 
 plot(seq(0.9,6,by=0.1), intMIC, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', col='darkgreen', ylim=c(0.2,1),
-     main='Comparativa etapa 1 Modelo 2')
+     ylab='Efficiency', col='darkgreen', ylim=c(0.2,1),
+     main='Comparative stage 1 Model 2')
 lines(seq(0.9,6,by=0.1), intMEN, type='o', lwd=2, col='darkblue')
 lines(seq(0.9,6,by=0.1), intBAR, type='o', lwd=2, col='red')
-legend('bottomleft', legend=c('Micro', 'Menu', 'Barra'), 
+legend('bottomleft', legend=c('Micro', 'Menu', 'Bar'), 
        col=c('darkgreen','darkblue','red'), pch = c(15,15,15), lty = 1, bty = "n")
 
 
-#Asientos
+#Seating
 lambdamic = 2
 lambdacaf = 3
 aforomax = 80
@@ -544,9 +544,9 @@ while (aforomax<250){
     
     while(TM<Tmax){
       TM = min(TLMI, TLCA, TSMI, TSME, TSBA, TSCO)
-      Estado = 1*(TM == TLMI) + 2*(TM == TLCA) + 3*(TM == TSMI) + 4*(TM == TSME) + 5*(TM == TSBA) + 6*(TM == TSCO)
+      state = 1*(TM == TLMI) + 2*(TM == TLCA) + 3*(TM == TSMI) + 4*(TM == TSME) + 5*(TM == TSBA) + 6*(TM == TSCO)
       
-      if (Estado == 1){
+      if (state == 1){
         k = LlegadaMI(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSMI, Microondas,total_llegadas11)
         N11 = k[[1]]
         SUMA11 = k[[2]]
@@ -559,7 +559,7 @@ while (aforomax<250){
         Microondas = k[[9]]
         total_llegadas11=k[[10]]
       }
-      else if (Estado == 2){
+      else if (state == 2){
         k = LlegadaCA(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSME, TSBA, Camareros,total_llegadas12,total_llegadas13)
         N12 = k[[1]]
         N13 = k[[2]]
@@ -575,7 +575,7 @@ while (aforomax<250){
         total_llegadas12=k[[12]]
         total_llegadas13=k[[13]]
       }
-      else if (Estado == 3){
+      else if (state == 3){
         k = ServicioMI(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM, TANT, Asientos, Microondas,total_servicio11,total_llegadas2)
         N11 = k[[1]]
         N2 = k[[2]]
@@ -591,7 +591,7 @@ while (aforomax<250){
         total_servicio11 = k[[12]]
         total_llegadas2 = k[[13]]
       }
-      else if (Estado == 4){
+      else if (state == 4){
         k = ServicioME(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM, TANT, Asientos,total_servicio12,total_llegadas2)
         N12 = k[[1]]
         N2 = k[[2]]
@@ -606,7 +606,7 @@ while (aforomax<250){
         total_servicio12 = k[[11]]
         total_llegadas2 = k[[12]]
       }
-      else if (Estado == 5){
+      else if (state == 5){
         k = ServicioBA(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM, TANT, Asientos, Camareros,total_servicio13,total_llegadas2)
         N13 =k[[1]]
         N2 = k[[2]]
@@ -622,7 +622,7 @@ while (aforomax<250){
         total_servicio13 = k[[12]]
         total_llegadas2 = k[[13]]
       }
-      else if (Estado == 6){
+      else if (state == 6){
         k = ServicioCO(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, Asientos,total_servicio2)
         N2 = k[[1]]
         SUMA11 = k[[2]]
@@ -644,8 +644,9 @@ while (aforomax<250){
   aforomax = aforomax + 10
 }
 
-plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
-     ylab='Eficiencia', main='Eficiencia comedor Modelo 2')
+plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Capacity',
+     ylab='Efficiency', main='Dining Room Efficiency Model 2')
 
 points(140,0.7564, lwd=3, col='red', type='b', add=TRUE)
+
 
