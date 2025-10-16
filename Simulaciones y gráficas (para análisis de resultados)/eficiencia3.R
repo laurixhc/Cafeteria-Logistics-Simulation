@@ -1,15 +1,14 @@
-meanmic = 2 #media de tiempo que tarda el microondas
-sdmic = 0.5 #desviacion del tiempo del microondas
-
+meanmic = 2 #average time it takes to use the microwave
+sdmic = 0.5 #microwave time deviation
 desv=1.5
 med=3
-sigmabar = sqrt( log(1+desv^2/med^2) )#valor sigma para la lognormal del servicio de la barra
-mubar = (log(med^2)-desv^2)/2 #valor media para la lognormal del servicio de la barra
+sigmabar = sqrt( log(1+desv^2/med^2) )#sigma value for the lognormal of the bar service
+mubar = (log(med^2)-desv^2)/2 #mean value for the lognormal of the bar service
 
 
 
-mucomida = 40 #valor mu para la normal truncada del tiempo en comer
-sigmacomida = 10 #valor sigma para la normal truncada del tiempo en comer
+mucomida = 40 #mu value for the truncated normal eating time
+sigmacomida = 10 #sigma value for the truncated normal eating time
 
 rtriang = function(n){
   u = runif(n)
@@ -501,30 +500,30 @@ while (lambdamic<6 & lambdacaf<6){
 
 #Microondas
 plot(seq(0.9,6,by=0.1), intMIC, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', main='Evolucion de eficiencia microondas Modelo 3')
+     ylab='Efficiency', main='Evolution of microwave efficiency Model 3')
 points(2,0.948, lwd=3, col='red', type='b', add=TRUE)
 
 #Menu
 plot(seq(0.9,6,by=0.1), intMEN, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', main='Evolucion de eficiencia menu Modelo 3')
+     ylab='Efficiency', main='Evolution of menu efficiency Model 3')
 points(3,0.8892, lwd=3, col='red', type='b', add=TRUE)
 
 #Barra
 plot(seq(0.9,6,by=0.1), intBAR, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', main='Evolucion de eficiencia barra Modelo 3')
+     ylab='Efficiency', main='Evolution of bar efficiency Model 3')
 points(3,0.9897, lwd=3, col='red', type='b', add=TRUE)
 
 plot(seq(0.9,6,by=0.1), intMIC, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', col='darkgreen', ylim=c(0.2,1),
-     main='Comparativa etapa 1 Modelo 3')
+     ylab='Efficiency', col='darkgreen', ylim=c(0.2,1),
+     main='Comparative stage 1 Model 3')
 lines(seq(0.9,6,by=0.1), intMEN, type='o', lwd=2, col='darkblue')
 lines(seq(0.9,6,by=0.1), intBAR, type='o', lwd=2, col='red')
-legend('bottomleft', legend=c('Micro', 'Menu', 'Barra'), 
+legend('bottomleft', legend=c('Micro', 'Menu', 'Bar'), 
        col=c('darkgreen','darkblue','red'), pch = c(15,15,15), lty = 1, bty = "n")
 
 
 
-#ASIENTOS
+#SEATING
 lambdamic = 2
 lambdacaf = 3
 aforomax = 80
@@ -565,7 +564,7 @@ while (aforomax < 250){
     total_servicio2=0
     
     abandono=0
-    f=0 #esto es para ver cuanta gente no calienta la comida
+    f=0 #This is to see how many people don't heat the food.
     
     Asientos = rep(NA, aforomax)
     Microondas = rep(NA, 4)
@@ -690,6 +689,7 @@ while (aforomax < 250){
   aforomax = aforomax + 10
 }
 
-plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Aforo',
-     ylab='Eficiencia', main='Eficiencia comedor Modelo 3')
+plot(seq(80,240,by=10), intSEN, ylim=c(0,1), type='o', lwd=2, xlab='Capacity',
+     ylab='Efficiency', main='Dining Room Efficiency Model 3')
 points(140,0.7478, lwd=3, col='red', type='b', add=TRUE)
+
