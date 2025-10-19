@@ -117,7 +117,7 @@ rnormal_truncada = function(n, mu, sigma){
   return(muestrat[n])
 }
 
-##############Creacción de subrutinas##############
+##############Creating subroutines##############
 
 LlegadaMI = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, SUMA22, TM, TANT, TSMI, Microondas, PMI, AsientosSA, AsientosCaf, total_llegadas11,total_llegadas21, total_llegadas22,f){
   N11 = N11 + 1
@@ -130,7 +130,7 @@ LlegadaMI = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA21, SU
   if(N11 > PIMI & u<=0.2){
     N11 = N11 - 1
     f=f+1
-    #Va directo a comer al comedor, tenemos que ver cual de los los comedores (sala azul o cafetería están con algún asiento libre)
+    #He goes straight to the dining room to eat. We have to see which of the dining rooms (blue room or cafeteria) has any free seats.
     N21 = N21 + 1
     
     if(N21 >= 1 & any(is.na(AsientosSA))){
@@ -455,7 +455,7 @@ ServicioCO_Caf = function(N11, N12, N13, N21, N22, SUMA11, SUMA12, SUMA13, SUMA2
   return (list(N22, SUMA11, SUMA12, SUMA13, SUMA21, SUMA22, TSCO_Caf, TANT, AsientosCaf, total_servicio22))
 }
 
-#Servicios
+#Services
 lambdamic = 0.9
 lambdacaf = 0.9
 intMIC = c()
@@ -705,26 +705,27 @@ while (lambdamic<6 & lambdacaf<6){
   lambdacaf = lambdacaf + 0.1
 }
 
-#Microondas
+#Microwave
 plot(seq(0.9,6,by=0.1), intMIC, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', main='Evolucion de eficiencia microondas Modelo 4')
+     ylab='Efficiency', main='Evolution of microwave efficiency Model 4')
 points(2,0.948, lwd=3, col='red', type='b', add=TRUE)
 
 #Menu
 plot(seq(0.9,6,by=0.1), intMEN, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', main='Evolucion de eficiencia menu Modelo 4')
+     ylab='Efficiency', main='Evolution of efficiency menu Model 4')
 points(3,0.8892, lwd=3, col='red', type='b', add=TRUE)
 
-#Barra
+#Bar
 plot(seq(0.9,6,by=0.1), intBAR, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', main='Evolucion de eficiencia barra Modelo 4')
+     ylab='Efficiency', main='Evolution of bar efficiency Model 4')
 points(3,0.9897, lwd=3, col='red', type='b', add=TRUE)
 
 plot(seq(0.9,6,by=0.1), intMIC, type='o', lwd=2, xlab='lambda',
-     ylab='Eficiencia', col='darkgreen', ylim=c(0.2,1),
-     main='Comparativa etapa 1 Modelo 4')
+     ylab='Efficiency', col='darkgreen', ylim=c(0.2,1),
+     main='Comparative stage 1 Model 4')
 lines(seq(0.9,6,by=0.1), intMEN, type='o', lwd=2, col='darkblue')
 lines(seq(0.9,6,by=0.1), intBAR, type='o', lwd=2, col='red')
-legend('bottomleft', legend=c('Micro', 'Menu', 'Barra'), 
+legend('bottomleft', legend=c('Micro', 'Menu', 'Bar'), 
 
        col=c('darkgreen','darkblue','red'), pch = c(15,15,15), lty = 1, bty = "n")
+
