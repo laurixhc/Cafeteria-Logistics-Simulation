@@ -1,17 +1,16 @@
-lambdamic = 2 #personas que llegan por minuto al microondas
-meanmic = 2 #media de tiempo que tarda el microondas
-sdmic = 0.5 #desviacion del tiempo del microondas
+lambdamic = 2 #people who come to the microwave per minute
+meanmic = 2 #average time it takes to use the microwave
+sdmic = 0.5 #microwave time deviation
 
-lambdacaf = 3 #personas que llegan por minuto a la cafeteria
+lambdacaf = 3 #people arriving at the cafeteria per minute
 desv=1.5
 med=3
-sigmabar = sqrt( log(1+desv^2/med^2) )#valor sigma para la lognormal del servicio de la barra
-mubar = (log(med^2)-desv^2)/2 #valor media para la lognormal del servicio de la barra
-
+sigmabar = sqrt( log(1+desv^2/med^2) )#sigma value for the lognormal of the bar service
+mubar = (log(med^2)-desv^2)/2 #mean value for the lognormal of the bar service
 
 aforomax = 140
-mucomida = 40 #valor mu para la normal truncada del tiempo en comer
-sigmacomida = 10 #valor sigma para la normal truncada del tiempo en comer
+mucomida = 40 #mu value for the truncated normal eating time
+sigmacomida = 10 #sigma value for the truncated normal eating time
 
 rtriang = function(n){
   u = runif(n)
@@ -438,4 +437,5 @@ mean(TSMIC)/mean(TLMIC)
 mean(TSMEN)/mean(TLMEN)
 mean(TSBAR)/mean(TLBAR)
 mean(TSSEN)/mean(TLSEN)
+
 mean(NoSER)
