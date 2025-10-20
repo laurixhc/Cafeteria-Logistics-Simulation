@@ -325,9 +325,9 @@ while (w<MAX){
   while(TM<Tmax){
     
     TM = min(TLMI, TLCA, TSMI, TSME, TSBA, TSCO)
-    Estado = 1*(TM == TLMI) + 2*(TM == TLCA) + 3*(TM == TSMI) + 4*(TM == TSME) + 5*(TM == TSBA) + 6*(TM == TSCO)
+    state = 1*(TM == TLMI) + 2*(TM == TLCA) + 3*(TM == TSMI) + 4*(TM == TSME) + 5*(TM == TSBA) + 6*(TM == TSCO)
     
-    if (Estado == 1){
+    if (state == 1){
       k = LlegadaMI(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSMI,total_llegadas11)
       N11 = k[1]
       SUMA11 = k[2]
@@ -339,7 +339,7 @@ while (w<MAX){
       TLMI = k[8]
       total_llegadas11=k[9]
     }
-    else if (Estado == 2){
+    else if (state == 2){
       k = LlegadaCA(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, TSME, TSBA,total_llegadas12,total_llegadas13)
       N12 = k[1]
       N13 = k[2]
@@ -354,7 +354,7 @@ while (w<MAX){
       total_llegadas12=k[11]
       total_llegadas13=k[12]
     }
-    else if (Estado == 3){
+    else if (state == 3){
       k = ServicioMI(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM, TANT, Asientos,total_servicio11,total_llegadas2)
       N11 = k[[1]]
       N2 = k[[2]]
@@ -369,7 +369,7 @@ while (w<MAX){
       total_servicio11=k[[11]]
       total_llegadas2=k[[12]]
     }
-    else if (Estado == 4){
+    else if (state == 4){
       k = ServicioME(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM, TANT, Asientos,total_servicio12,total_llegadas2)
       N12 = k[[1]]
       N2 = k[[2]]
@@ -384,7 +384,7 @@ while (w<MAX){
       total_servicio12 = k[[11]]
       total_llegadas2 = k[[12]]
     }
-    else if (Estado == 5){
+    else if (state == 5){
       k = ServicioBA(N11, N12, N13, N2, SUMA11, SUM12, SUMA13, SUMA2, TSCO, TM, TANT, Asientos,total_servicio13,total_llegadas2)
       N13 =k[[1]]
       N2 = k[[2]]
@@ -399,7 +399,7 @@ while (w<MAX){
       total_servicio13 = k[[11]]
       total_llegadas2 = k[[12]]
     }
-    else if (Estado == 6){
+    else if (state == 6){
       k = ServicioCO(N11, N12, N13, N2, SUMA11, SUMA12, SUMA13, SUMA2, TM, TANT, Asientos,total_servicio2)
       N2 = k[[1]]
       SUMA11 = k[[2]]
@@ -411,7 +411,7 @@ while (w<MAX){
       Asientos = k[[8]]
       total_servicio2 = k[[9]]
     }
-    #print(paste("Estado", Estado, "SUMA2", SUMA2, "N11", N11, "N12", N12, "N13", N13, "N2", N2, "Nsent", length(Asientos)-length(which(is.na(Asientos)))))
+    #print(paste("Estado", state, "SUMA2", SUMA2, "N11", N11, "N12", N12, "N13", N13, "N2", N2, "Nsent", length(Asientos)-length(which(is.na(Asientos)))))
   }
   mediaMIC = c(mediaMIC, SUMA11/TM)
   mediaMEN = c(mediaMEN, SUMA12/TM)
@@ -439,3 +439,4 @@ mean(TSBAR)/mean(TLBAR)
 mean(TSSEN)/mean(TLSEN)
 
 mean(NoSER)
+
